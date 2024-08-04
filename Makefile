@@ -54,16 +54,16 @@ DP1.pdf: DP1.tex
 # milestones from Jira and Gantt
 openMilestones.tex: 
 	( \
-	cd operations_milestones; \
-	source venv/bin/activate; \
-	python opsMiles.py -ls -q "and labels=DP1" -u ${USER}; \
-	mv *Milestones.tex .. \
+	. operations_milestones/venv/bin/activate; \
+	python ooperations_milestone/spsMiles.py -ls -q "and labels=DP1"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
 	)	
 	
 DP1.tex: 
 	( \
-	cd operations_milestones; \
-	source venv/bin/activate; \
-	python opsMiles.py -g -f "DP1.tex" -q "labels=DP1" -u ${USER}; \
+	. operations_milestones/venv/bin/activate; \
+	python operations_milestones/opsMiles.py -g -f "DP1.tex" -q "labels=DP1 and type != story"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
 	)
+
+install_deps:
+	python -m pip install -r operations_milestones/requirements.txt
 
