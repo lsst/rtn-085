@@ -14,7 +14,7 @@ endif
 export TEXMFHOME ?= lsst-texmf/texmf
 
 # Add aglossary.tex as a dependancy here if you want a glossary (and remove acronyms.tex)
-$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex
+$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex openMilestones.tex DP1.pdf
 	latexmk -bibtex -xelatex -f $(DOCNAME)
 #	makeglossaries $(DOCNAME)
 #	xelatex $(DOCNAME)
@@ -46,3 +46,24 @@ meta.tex: Makefile .FORCE
 	printf '\\newcommand{\\lsstDocNum}{$(DOCNUMBER)}\n' >>$@
 	printf '\\newcommand{\\vcsRevision}{$(GITVERSION)$(GITDIRTY)}\n' >>$@
 	printf '\\newcommand{\\vcsDate}{$(GITDATE)}\n' >>$@
+
+
+DP1.pdf: DP1.tex
+	pdflatex DP1.tex
+
+# milestones from Jira and Gantt
+openMilestones.tex: 
+	( \
+	cd operations_milestones; \
+	source venv/bin/activate; \
+	python opsMiles.py -ls -q "and labels=DP1" -u ${USER}; \
+	mv *Milestones.tex .. \
+	)	
+	
+DP1.tex: 
+	( \
+	cd operations_milestones; \
+	source venv/bin/activate; \
+	python opsMiles.py -g -f "DP1.tex" -q "labels=DP1" -u ${USER}; \
+	)
+
