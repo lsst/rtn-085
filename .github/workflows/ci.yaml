@@ -37,7 +37,7 @@ jobs:
           JIRA_PASSWORD: ${{ secrets.JIRA_CLOUD_TOKEN }}
         run: |
           make DP1.tex openMilestones.tex
-          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make install_deps RTN-085.pdf'
+          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make DP1.pdf RTN-085.pdf'
 
       - name: Landing page upload
         if: ${{ github.event_name == 'push' }}
