@@ -3,10 +3,43 @@
 We pull together information from Jira and refer to other documents as needed to describe DP1 in more detail.
 
 DP1 should be released to the community after the First Look image is released to the press.
+The general order with some time (days potentially weeks)  between steps is:
+
+\begin{itemize}
+\item Public First Look - JPG and large images full focal plane or more
+\item DP1 - ComCam data reprocessed and in good form
+\item Science Images in the FL images
+\end{itemize}
 
 
-\subsection{DP1 Scope}
+\subsection{DP1 Scope} \label{sec:scope}
+\subsubsection{Data}
 DP1 comprises data from ComCam on sky.
-There will be PVIs.
-There is no promise of coadds but if there is good data this is a stretch goal.
+\citeds{RTN-011} gives an outline of DP1 however at time of writing it still states DP1 could be either camera.
+
+DP1 could contain data with poor PSF as ComCam may be driven by work on AOS verification.
+As such:
+\begin{itemize}
+\item There will be PVIs and catalogs if the data are good enough.
+\item There is no promise of coadds but if there is good data this is a stretch goal.
+\item There will be no difference imaging in DP1.
+\end{itemize}
+
+\paragraph{First Look Images} \label{sec:fl}
+
+First Look images from LSSTCam will not be part of DP! but should follow sometime after it.
+The FL will only be what as done for producing the images of which there should be a small number.
+It should have PVIs PSF matched coadds  and  may have catalogs if it is feasible.
+DM currently have no visibility on what kind of imaging will be taken so can not commit to anything for FL.
+
+\subsubsection{Science Platform}
+No new functionality is expected on RSP for DP1 - no full focal place viewer is required.
+The image cutout service is to be more robust and scalable.
+
+
+Catalogs will be served by Qserv at USDF.
+
+
+
+
 
