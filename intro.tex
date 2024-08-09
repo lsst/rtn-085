@@ -34,13 +34,28 @@ It should have PVIs PSF matched coadds  and  may have catalogs if it is feasible
 DM currently have no visibility on what kind of imaging will be taken so can not commit to anything for FL.
 
 \subsubsection{Science Platform}
-No new functionality is expected on RSP for DP1 - no full focal place viewer is required.
-The image cutout service is to be more robust and scalable but bulk cutouts will not be supported for DP1.
 
+Science Platform functionality for DP1 is focusing on good user experience and system scalability rather than full feature capability.
+For reputational and morale reasons, it is critical that it is adequately communicated to the community that this is not just a data preview but a science platform preview.
 
-Catalogs will be served by Qserv at USDF as baseline.
+Due to the expected low interest in the simulated data based DP0 releases, and due to the decision to open DP1 to all data rights holders, DP1 could be a two orders of magnitude scale-up event over current usage and the first real test of the hybrid model. Preparing for such a jump in usage is challenging and takes priority even over releasing features that we would normally consider part on a minimal feature set.
 
+Nevertheless, some capabilities that were not offered in DP0 nevertheless have to be offered in DP1 as not doing so falls well beyond the minimum standard the community will expect. These are:
 
+\begin{itemize}
+    \item Temporary table upload for Qserv
+    \item User query history
+    \item User query management (requires the new Qserv front end)
+    \item RA/DEC cutouts across patch/tract boundaries
+    \item HIPS for full focal plane images
+    \item Additional data-link annotations
+    \item Butler Client-server
+    \item Visit table in Qserv
+    \item Portal-accessible user WebDAV service
+    \item User quotas
+\end{itemize}
 
+As is evident, some of these require features in development from Qserv and Butler. Additionally documentation activities, helpdesk arrangements, and review of tutorial notebooks for performance will be co-ordinated with the Community Science Team.
 
+It is unlikely that any other capabilities will be ready and hardened for large spiked usage. This means that a number of features of the final system such as bulk cutouts, interactive full focal plane scale viewer, SIA v2 service, persistent user table uploads, consolidated Database, Qserv intersects and a PSF service are NOT expected to participate in DP1 in the current schedule.
 
