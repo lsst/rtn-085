@@ -53,13 +53,13 @@ DP1.pdf: DP1.tex
 	pdflatex DP1.tex
 
 # milestones from Jira and Gantt
-openMilestones.tex: 
+openMilestones.tex:  .FORCE
 	( \
 	. operations_milestones/venv/bin/activate; \
 	python operations_milestones/opsMiles.py -ls -q "and labels=DP1"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
 	)	
 	
-DP1.tex: 
+DP1.tex:  .FORCE
 	( \
 	. operations_milestones/venv/bin/activate; \
 	python operations_milestones/opsMiles.py -g -f "DP1.tex" -q "labels=DP1 and type != story"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
