@@ -14,7 +14,8 @@ endif
 export TEXMFHOME ?= lsst-texmf/texmf
 
 # Add aglossary.tex as a dependancy here if you want a glossary (and remove acronyms.tex)
-$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex
+#openMilestones.tex DP1.pdf
+$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex 
 	latexmk -bibtex -xelatex -f $(DOCNAME)
 #	makeglossaries $(DOCNAME)
 #	xelatex $(DOCNAME)
@@ -46,3 +47,24 @@ meta.tex: Makefile .FORCE
 	printf '\\newcommand{\\lsstDocNum}{$(DOCNUMBER)}\n' >>$@
 	printf '\\newcommand{\\vcsRevision}{$(GITVERSION)$(GITDIRTY)}\n' >>$@
 	printf '\\newcommand{\\vcsDate}{$(GITDATE)}\n' >>$@
+
+
+DP1.pdf: DP1.tex
+	pdflatex DP1.tex
+
+# milestones from Jira and Gantt
+openMilestones.tex:  
+	( \
+	. operations_milestones/venv/bin/activate; \
+	python operations_milestones/opsMiles.py -ls -q "and labels=DP1"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
+	)	
+	
+DP1.tex:  
+	( \
+	. operations_milestones/venv/bin/activate; \
+	python operations_milestones/opsMiles.py -g -f "DP1.tex" -q "labels=DP1 and type != story"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
+	)
+
+install_deps:
+	python -m pip install -r operations_milestones/requirements.txt
+

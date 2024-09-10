@@ -1,0 +1,61 @@
+\section{Introduction} \label{sec:intro}
+
+We pull together information from Jira and refer to other documents as needed to describe DP1 in more detail.
+
+DP1 should be released to the community after the First Look image is released to the press.
+The general order with some time (days potentially weeks)  between steps is:
+
+\begin{itemize}
+\item Public First Look - JPG and large images full focal plane or more
+\item DP1 - ComCam data reprocessed and in good form
+\item Science Images in the FL images
+\end{itemize}
+
+
+\subsection{DP1 Scope} \label{sec:scope}
+The goal od DP1 is to give data to the science community - not any new features in RSP etc.
+\subsubsection{Data}
+DP1 comprises data from ComCam on sky.
+\citeds{RTN-011} gives an outline of DP1 however at time of writing it still states DP1 could be either camera.
+
+DP1 could contain data with poor PSF as ComCam may be driven by work on AOS verification.
+As such:
+\begin{itemize}
+\item There will be PVIs and catalogs if the data are good enough.
+\item There is no promise of coadds but if there is good data this is a stretch goal.
+\item There will be no difference imaging in DP1.
+\end{itemize}
+
+\paragraph{First Look Images} \label{sec:fl}
+
+First Look images from LSSTCam will not be part of DP! but should follow sometime after it.
+The FL will only be what as done for producing the images of which there should be a small number.
+It should have PVIs PSF matched coadds  and  may have catalogs if it is feasible.
+DM currently have no visibility on what kind of imaging will be taken so can not commit to anything for FL.
+
+\subsubsection{Science Platform}
+
+Science Platform functionality for DP1 is focusing on good user experience and system scalability rather than full feature capability.
+For reputational and morale reasons, it is critical that it is adequately communicated to the community that this is not just a data preview but a science platform preview.
+
+Due to the expected low interest in the simulated data based DP0 releases, and due to the decision to open DP1 to all data rights holders, DP1 could be a two orders of magnitude scale-up event over current usage and the first real test of the hybrid model. Preparing for such a jump in usage is challenging and takes priority even over releasing features that we would normally consider part on a minimal feature set.
+
+Nevertheless, some capabilities that were not offered in DP0 nevertheless have to be offered in DP1 as not doing so falls well beyond the minimum standard the community will expect. These are:
+
+\begin{itemize}
+    \item Temporary table upload for Qserv
+    \item User query history
+    \item User query management (requires the new Qserv front end)
+    \item RA/DEC cutouts across patch/tract boundaries
+    \item HIPS for full focal plane images
+    \item Additional data-link annotations
+    \item Butler Client-server
+    \item Visit table in Qserv
+    \item Portal-accessible user WebDAV service
+    \item User quotas
+\end{itemize}
+
+As is evident, some of these require features in development from Qserv and Butler. Additionally documentation activities, helpdesk arrangements, and review of tutorial notebooks for performance will be co-ordinated with the Community Science Team.
+
+It is unlikely that any other capabilities will be ready and hardened for large spiked usage. This means that a number of features of the final system such as bulk cutouts, interactive full focal plane scale viewer, SIA v2 service, persistent user table uploads, consolidated Database, Qserv intersects and a PSF service are NOT expected to participate in DP1 in the current schedule.
+
