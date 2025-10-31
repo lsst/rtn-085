@@ -56,13 +56,13 @@ DP1.pdf: DP1.tex
 openMilestones.tex:  
 	( \
 	. operations_milestones/venv/bin/activate; \
-	python operations_milestones/opsMiles.py -ls -q "and labels=DP1"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
+	python operations_milestones/opsMiles.py -ls -q " and labels=DP1 "  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
 	)	
 	
 DP1.tex:  
 	( \
 	. operations_milestones/venv/bin/activate; \
-	python operations_milestones/opsMiles.py -g -f "DP1.tex" -q "labels=DP1 and type != story"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
+	python operations_milestones/opsMiles.py -g -f "DP1.tex" -q "labels=DP1 and type != story and type != RFC"  -u ${JIRA_USER} -p ${JIRA_PASSWORD}; \
 	)
 
 install_deps:
